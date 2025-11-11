@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadoras Financeiras</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="nav-title">Calculadoras</h1>
+            <div class="nav-links">
+                <button class="nav-btn active" data-tab="equilibrio">Ponto de Equilíbrio</button>
+                <button class="nav-btn" data-tab="lucratividade">Lucratividade</button>
+                <button class="nav-btn" data-tab="rentabilidade">Rentabilidade</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <!-- Ponto de Equilíbrio -->
+        <section id="equilibrio" class="tab-content active">
+            <div class="calculator-card">
+                <h2>Ponto de Equilíbrio</h2>
+                <p class="formula">PE = Gasto Fixo ÷ (Preço de Venda - Gasto Variável)</p>
+                
+                <form id="peForm">
+                    <div class="input-group">
+                        <label>Gasto Fixo</label>
+                        <input type="number" id="gastoFixo" step="0.01" placeholder="R$ 0,00" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Preço de Venda Unitário</label>
+                        <input type="number" id="precoVenda" step="0.01" placeholder="R$ 0,00" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Gasto Variável Unitário</label>
+                        <input type="number" id="gastoVariavel" step="0.01" placeholder="R$ 0,00" required>
+                    </div>
+                    
+                    <button type="submit" class="calculate-btn">Calcular</button>
+                </form>
+                
+                <div id="peResultado" class="result-section hidden">
+                    <div class="result-card">
+                        <div class="result-item">
+                            <span>Ponto de Equilíbrio</span>
+                            <span id="peValue" class="result-value"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>Margem de Contribuição</span>
+                            <span id="margemValue" class="result-value"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lucratividade -->
+        <section id="lucratividade" class="tab-content">
+            <div class="calculator-card">
+                <h2>Lucratividade</h2>
+                <p class="formula">Lucratividade = (Lucro ÷ Receita de Venda) × 100</p>
+                
+                <form id="lucratividadeForm">
+                    <div class="input-group">
+                        <label>Lucro</label>
+                        <input type="number" id="lucro" step="0.01" placeholder="R$ 0,00" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Receita de Venda</label>
+                        <input type="number" id="receita" step="0.01" placeholder="R$ 0,00" required>
+                    </div>
+                    
+                    <button type="submit" class="calculate-btn">Calcular</button>
+                </form>
+                
+                <div id="lucratividadeResultado" class="result-section hidden">
+                    <div class="result-card">
+                        <div class="result-item">
+                            <span>Lucratividade</span>
+                            <span id="lucratividadeValue" class="result-value"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rentabilidade -->
+        <section id="rentabilidade" class="tab-content">
+            <div class="calculator-card">
+                <h2>Rentabilidade</h2>
+                <p class="formula">Rentabilidade = (Lucro ÷ Capital Investido) × 100</p>
+                
+                <form id="rentabilidadeForm">
+                    <div class="input-group">
+                        <label>Lucro</label>
+                        <input type="number" id="lucroRent" step="0.01" placeholder="R$ 0,00" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Capital Investido</label>
+                        <input type="number" id="capital" step="0.01" placeholder="R$ 0,00" required>
+                    </div>
+                    
+                    <button type="submit" class="calculate-btn">Calcular</button>
+                </form>
+                
+                <div id="rentabilidadeResultado" class="result-section hidden">
+                    <div class="result-card">
+                        <div class="result-item">
+                            <span>Rentabilidade</span>
+                            <span id="rentabilidadeValue" class="result-value"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>
