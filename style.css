@@ -211,33 +211,136 @@ input:focus {
     display: none;
 }
 
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px 20px 0 0;
+    padding: 12px 24px;
+    margin-bottom: 0;
+    z-index: 50;
+}
+
+.footer p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    text-align: center;
+    margin: 0;
+}
+
+.footer strong {
+    color: white;
+}
+
 @media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+    
     .navbar {
         position: relative;
         transform: none;
         left: auto;
-        margin: 20px 20px 0;
+        margin: 10px;
+        border-radius: 16px;
     }
     
     .nav-container {
         flex-direction: column;
-        gap: 16px;
+        gap: 12px;
+        padding: 12px 16px;
+    }
+    
+    .nav-title {
+        font-size: 16px;
     }
     
     .nav-links {
         width: 100%;
         justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .nav-btn {
+        padding: 6px 12px;
+        font-size: 12px;
     }
     
     .main-content {
-        padding: 20px;
+        padding: 10px;
+        max-width: 100%;
     }
     
     .calculator-card {
-        padding: 24px 20px;
+        padding: 20px 16px;
+        border-radius: 16px;
     }
     
     h2 {
-        font-size: 24px;
+        font-size: 22px;
+    }
+    
+    .formula {
+        font-size: 12px;
+        padding: 10px 12px;
+    }
+    
+    label {
+        font-size: 16px;
+    }
+    
+    input {
+        padding: 12px 14px;
+        font-size: 16px;
+    }
+    
+    .calculate-btn {
+        padding: 14px;
+        font-size: 16px;
+    }
+    
+    .result-value {
+        font-size: 18px;
+    }
+    
+    .footer {
+        position: relative;
+        transform: none;
+        left: auto;
+        margin: 20px 10px 10px;
+        border-radius: 12px;
+    }
+    
+    .footer p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-btn {
+        padding: 4px 8px;
+        font-size: 11px;
+    }
+    
+    .calculator-card {
+        padding: 16px 12px;
+    }
+    
+    h2 {
+        font-size: 20px;
+    }
+    
+    input {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+    
+    .calculate-btn {
+        padding: 12px;
+        font-size: 14px;
     }
 }
