@@ -19,9 +19,9 @@ document.querySelectorAll('.nav-btn').forEach(btn => {
 document.getElementById('peForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
-    const gastoFixo = parseCurrency(document.getElementById('gastoFixo').value);
-    const precoVenda = parseCurrency(document.getElementById('precoVenda').value);
-    const gastoVariavel = parseCurrency(document.getElementById('gastoVariavel').value);
+    const gastoFixo = parseFloat(document.getElementById('gastoFixo').value) || 0;
+    const precoVenda = parseFloat(document.getElementById('precoVenda').value) || 0;
+    const gastoVariavel = parseFloat(document.getElementById('gastoVariavel').value) || 0;
     
     if (precoVenda <= gastoVariavel) {
         alert('O preço de venda deve ser maior que o gasto variável!');
@@ -41,8 +41,8 @@ document.getElementById('peForm').addEventListener('submit', function(e) {
 document.getElementById('lucratividadeForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
-    const lucro = parseCurrency(document.getElementById('lucro').value);
-    const receita = parseCurrency(document.getElementById('receita').value);
+    const lucro = parseFloat(document.getElementById('lucro').value) || 0;
+    const receita = parseFloat(document.getElementById('receita').value) || 0;
     
     if (receita <= 0) {
         alert('A receita deve ser maior que zero!');
@@ -59,8 +59,8 @@ document.getElementById('lucratividadeForm').addEventListener('submit', function
 document.getElementById('rentabilidadeForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
-    const lucro = parseCurrency(document.getElementById('lucroRent').value);
-    const capital = parseCurrency(document.getElementById('capital').value);
+    const lucro = parseFloat(document.getElementById('lucroRent').value) || 0;
+    const capital = parseFloat(document.getElementById('capital').value) || 0;
     
     if (capital <= 0) {
         alert('O capital investido deve ser maior que zero!');
@@ -73,7 +73,7 @@ document.getElementById('rentabilidadeForm').addEventListener('submit', function
     document.getElementById('rentabilidadeResultado').classList.remove('hidden');
 });
 
-// Máscara de valores monetários
+// Formatação de moeda para exibição
 function formatCurrency(value) {
     return new Intl.NumberFormat('pt-BR', {
         style: 'currency',
@@ -81,34 +81,11 @@ function formatCurrency(value) {
     }).format(value);
 }
 
-function parseCurrency(value) {
-    return parseFloat(value.replace(/[^\d,-]/g, '').replace(',', '.')) || 0;
-}
-
-// Aplicar máscara nos inputs
+// Validação simples dos inputs
 document.querySelectorAll('input[type="number"]').forEach(input => {
     input.addEventListener('input', function() {
         if (this.value < 0) {
             this.value = 0;
-        }
-        
-        // Aplicar máscara de moeda
-        let value = parseCurrency(this.value);
-        if (value > 0) {
-            this.value = value.toLocaleString('pt-BR', {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2
-            });
-        }
-    });
-    
-    input.addEventListener('blur', function() {
-        let value = parseCurrency(this.value);
-        if (value > 0) {
-            this.value = value.toLocaleString('pt-BR', {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2
-            });
         }
     });
 });
